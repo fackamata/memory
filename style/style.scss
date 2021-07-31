@@ -1,0 +1,147 @@
+$btn_background : #17252A;
+$font_color : #DEF2F1;
+$light_blue : #3AAFA9;
+$grey_blue : #2B7A78;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+body{    
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    background-color: $light_blue;
+    color : $font_color;
+    header{
+        margin: 0;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        #level{
+            text-align: center;
+            button{
+                padding: 8px 15px;
+                border-radius: 5px;
+                background-color: $btn_background;
+                color: $font_color;
+                border: none;
+                margin-bottom: 10px;
+            }
+        }
+        h1{
+            color: $btn_background;
+        }
+        span{
+            color : $btn_background;
+            font-weight: bold;
+            
+        }
+        h2{
+            color : $btn_background;
+        }
+        h3{
+            color : $btn_background;
+        }
+        h2{
+            color : $btn_background;
+        }
+        #result{
+            display: none;
+        }
+        #loose{
+            display: none;
+        }
+        
+    }
+    
+    .container-fluid {
+        display : none;
+        margin:0 auto;
+        #containerDuJeu{            
+            #barContainer{                
+                margin:0 auto;
+                border-radius: 5px;
+                width: 60vw;
+                height: 30px;
+                border: 1px solid $btn_background;
+                position:relative;             
+                
+                #progressBar{
+                    height:100%;
+                    background-color : $grey_blue;
+                    width: 0;
+                    span{
+                        position:absolute;
+                        left: 50%;
+                        top: 7px;
+                    }
+                }
+            }
+            .grid-container{
+                position:relative;
+                margin-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                // img{
+                //     width: 100px;
+                //     width: 100px;
+                // }
+                .flip-card{
+                    background-color: transparent;
+                    width: 100px;
+                    height: 100px;
+                    perspective: 1000px;
+                    margin:2px; 
+                    .C{
+                        transform: rotateY(180deg);
+                    }
+                   
+                    :not(.C){
+                        transform: rotateY(0deg);
+                    }
+                    .X{
+                        transform: rotateY(180deg);
+                    }
+                    .flip-card-inner{
+                        position: relative;
+                        // width: 100%;
+                        // height: 100%;
+                        text-align: center;
+                        transition: transform 0.6s;
+                        transform-style: preserve-3d; 
+                        
+                        
+                        .flip-card-front, .flip-card-back{
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            -webkit-backface-visibility: hidden;
+                            backface-visibility: hidden;
+                        }
+                        .flip-card-back{
+                            transform: rotateY(180deg);
+                        }                       
+                        .flip-card-front {
+                            font-size: 90px;                            
+                        }                       
+                        
+                    } // .flip-card-inner
+                } // ..flip-card
+
+            } // .grid-container
+        } // #containerDuJeu
+    }    //main   
+    footer{
+        display: flex;
+        justify-content: center;
+        button{
+            margin-top: 30px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: $btn_background;
+            color: $font_color;
+            border: none;
+            display: none;
+        }
+    }
+} // body
+
