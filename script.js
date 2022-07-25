@@ -17,8 +17,9 @@ const divFound = document.getElementById("divFound")
 const divFound2 = document.getElementById("divFound2")
 const levelEnd = document.getElementById("levelEnd")
 
-class GameInit  {
-    constructor (nbCarte, temps, level){
+    class GameInit  {
+        // initialisation
+        constructor (nbCarte, temps, level){
         this.nbCarte = nbCarte;
         this.temps = temps;
         this.refTemps = temps;
@@ -37,33 +38,35 @@ class GameInit  {
         divLevel.style.display = 'none'
         btnRetourLevel.style.display = 'block'
         cardContainer.innerHTML = '';
+        progressBar.style.backgroundColor = "#2B7A78"
     }
 
     createCard(){
-         // on crop l'image contenant la liste des images pour les avoirs en individuelles.
+         // crop main image to get our 18 game's card.
+        //  return an array of our 18 cards in HTML element with class and attribute
         var cropImg = 0;
         var cardArray = [];        
         
         for(let i=0; i < 18; i++){
-             var cardInner = document.createElement("div")
-             cardInner.className = "flip-card-inner"
-             cardInner.setAttribute("cardNb", i);
-             
-             var cardFront = document.createElement("div")
-             cardFront.className = "flip-card-front"
-             var cardBack = document.createElement("div")
-             cardBack.className = "flip-card-back"
-             
-             var cardContainer = document.createElement("div")
-             cardContainer.className= "memory-card flip-card"
-             
-             var coverCard = document.createElement("div")
+            var cardInner = document.createElement("div")
+            cardInner.className = "flip-card-inner"
+            cardInner.setAttribute("cardNb", i);
+            
+            var cardFront = document.createElement("div")
+            cardFront.className = "flip-card-front"
+            
+            var cardBack = document.createElement("div")
+            cardBack.className = "flip-card-back"
+            
+            var cardContainer = document.createElement("div")
+            cardContainer.className= "memory-card flip-card"
+            
+            var coverCard = document.createElement("div")
             coverCard.style.width = "100px"
             coverCard.style.height = "100px"
             coverCard.style.backgroundColor = "#2B7A78"
             coverCard.textContent = "?"
             coverCard.style.color = "#DEF2F1"
-            // coverCard.textContent = i        // for test
 
             var card = document.createElement("img")
             card.className= "front-face"
@@ -89,8 +92,9 @@ class GameInit  {
     }
 
     stockCardEachTurn(){
+        // select the number of card needed for the game
+        // return an array of x unique card (x depend on the level choosen)
         let arrayToSelectFrom = this.createCard();
-
         for(let i = 0 ; i < this.nbCarte ; i++){ 
                 let displayFirstCard = arrayToSelectFrom[i];
                 this.arrayToClear.push(displayFirstCard)
@@ -99,31 +103,29 @@ class GameInit  {
     }
 
     clearCard(){
+        // clear the HTML container
         cardContainer.empty;
     }
 
     displayCard(){
-        this.clearCard()
+        this.clearCard();
         let arrayCardDisplay = [];
 
-        this.stockCardEachTurn()     
+        this.stockCardEachTurn();
+
         this.arrayToClear.forEach(element => {
             arrayCardDisplay.push(element);
-        });
-        this.arrayToClear.forEach(element=> {
-            arrayCardDisplay.push(element);
-            // Create a copy of it
             var clone = element.cloneNode(true);
-            arrayCardDisplay.push(clone)
-        });
+            arrayCardDisplay.push(clone);
+        }); 
 
         this.arrayToClear = [];
 
-            while(arrayCardDisplay.length > 0){
-                let randomNb = Math.floor(Math.random() * arrayCardDisplay.length)
-                let cardToAdd = arrayCardDisplay.splice(randomNb, 1);
-                cardContainer.appendChild(cardToAdd[0])
-            }
+        while(arrayCardDisplay.length > 0){
+            let randomNb = Math.floor(Math.random() * arrayCardDisplay.length);
+            let cardToAdd = arrayCardDisplay.splice(randomNb, 1);
+            cardContainer.appendChild(cardToAdd[0]);
+        }
     };
 
     testMatch(){
@@ -167,13 +169,15 @@ class GameInit  {
             }
             return objetGeneral.temps
         }, 1000);
-    } // end of counter
+    } 
     
     stopSetInterval() {
-        clearInterval(this.partieTimer); 
+        // to stop setInterval()
+         clearInterval(this.partieTimer); 
       }
 
     resetEndOfGame(){
+        // re-initialise the game
         main.style.display = "none"   
         this.stopSetInterval()
         if(this.resultat){
@@ -190,19 +194,18 @@ class GameInit  {
 
     playGame(){
         this.counter()
-        this.displayCard()
         this.createCard()
+        this.displayCard()
         let globalObj = this;
         var flipCardInner = document.querySelectorAll(".flip-card-inner")
         let nbFlipCard = flipCardInner.length
 
         for (let i = 0; i < nbFlipCard; i++) {
             flipCardInner[i].addEventListener('click',function(ev){
-                let clickThis = this
                 let cardClicked = this;
                 globalObj.tries += 1 ;
 
-                const par = clickThis.className;
+                const par = cardClicked.className;
                 const regex = /['C']/g;
                 const reg = /['X']/g;
                 const alreadyClicked = par.match(regex);
@@ -219,7 +222,7 @@ class GameInit  {
             })
         }
 
-        btnRetourLevel.addEventListener("click", function(){
+        btnRetourLevel.addEventListener("click", function(){    
             main.style.display = 'none'
             divLevel.style.display = 'block'
             result.style.display = 'none'

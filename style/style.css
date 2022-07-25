@@ -1,29 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 2px;
   background-color: #3AAFA9;
   color: #DEF2F1;
 }
-
 body header {
   margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
-
 body header #level {
   text-align: center;
 }
-
 body header #level button {
   padding: 8px 15px;
   border-radius: 5px;
@@ -32,41 +22,32 @@ body header #level button {
   border: none;
   margin-bottom: 10px;
 }
-
 body header h1 {
   color: #17252A;
 }
-
 body header span {
   color: #17252A;
   font-weight: bold;
 }
-
 body header h2 {
   color: #17252A;
 }
-
 body header h3 {
   color: #17252A;
 }
-
 body header h2 {
   color: #17252A;
 }
-
 body header #result {
   display: none;
 }
-
 body header #loose {
   display: none;
 }
-
 body .container-fluid {
   display: none;
   margin: 0 auto;
 }
-
 body .container-fluid #containerDuJeu #barContainer {
   margin: 0 auto;
   border-radius: 5px;
@@ -75,67 +56,45 @@ body .container-fluid #containerDuJeu #barContainer {
   border: 1px solid #17252A;
   position: relative;
 }
-
 body .container-fluid #containerDuJeu #barContainer #progressBar {
   height: 100%;
   background-color: #2B7A78;
   width: 0;
 }
-
 body .container-fluid #containerDuJeu #barContainer #progressBar span {
   position: absolute;
   left: 50%;
   top: 7px;
 }
-
 body .container-fluid #containerDuJeu .grid-container {
   position: relative;
   margin-top: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 body .container-fluid #containerDuJeu .grid-container .flip-card {
   background-color: transparent;
   width: 100px;
   height: 100px;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
+  perspective: 1000px;
   margin: 2px;
 }
-
 body .container-fluid #containerDuJeu .grid-container .flip-card .C {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-
 body .container-fluid #containerDuJeu .grid-container .flip-card :not(.C) {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
-
 body .container-fluid #containerDuJeu .grid-container .flip-card .X {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-
 body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner {
   position: relative;
   text-align: center;
-  -webkit-transition: -webkit-transform 0.6s;
-  transition: -webkit-transform 0.6s;
   transition: transform 0.6s;
-  transition: transform 0.6s, -webkit-transform 0.6s;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
-
 body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner .flip-card-front, body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner .flip-card-back {
   position: absolute;
   width: 100%;
@@ -143,25 +102,16 @@ body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inne
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-
 body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner .flip-card-back {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-
 body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner .flip-card-front {
   font-size: 90px;
 }
-
 body footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 body footer button {
   margin-top: 30px;
   padding: 8px 15px;
@@ -170,5 +120,4 @@ body footer button {
   color: #DEF2F1;
   border: none;
   display: none;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
