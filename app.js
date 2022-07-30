@@ -39,52 +39,45 @@ const levelEnd = document.getElementById("levelEnd")
         btnRetourLevel.style.display = 'block'
         cardContainer.innerHTML = '';
         progressBar.style.backgroundColor = "#2B7A78"
+
+    }
+    sizeForScreen(){
+
+        let screenSize = cardContainer.offsetHeight * cardContainer.clientWidth 
+        let border = ((screenSize / (this.nbCarte ))**0.5)/1.8
+
+        if (border > 130){
+            border = 130
+        }
+        let cardWidth = border;
+        let cardFontSize = ( cardWidth - (border/10)) ;
+        return [cardWidth,cardFontSize]
     }
 
     createCard(){
          // crop main image to get our 18 game's card.
         //  return an array of our 18 cards in HTML element with class and attribute
         var cropImg = 0;
-        var cardArray = [];        
+        var cardArray = [];  
+        
+        let valFromScreen = this.sizeForScreen();
+        let size = valFromScreen[0];
+        let fontSize = valFromScreen[1];
+
         
         for(let i=0; i < 18; i++){
-            var cardInner = document.createElement("div")
-            cardInner.className = "flip-card-inner"
-            cardInner.setAttribute("cardNb", i);
-            
-            var cardFront = document.createElement("div")
-            cardFront.className = "flip-card-front"
-            
-            var cardBack = document.createElement("div")
-            cardBack.className = "flip-card-back"
-            
             var cardContainer = document.createElement("div")
-            cardContainer.className= "memory-card flip-card"
-            
-            var coverCard = document.createElement("div")
-            coverCard.style.width = "100px"
-            coverCard.style.height = "100px"
-            coverCard.style.backgroundColor = "#2B7A78"
-            coverCard.textContent = "?"
-            coverCard.style.color = "#DEF2F1"
-
-            var card = document.createElement("img")
-            card.className= "front-face"
-            card.setAttribute("src", "./cartes.png")
-            var position = "0%" + cropImg + "%"
-            card.style.objectPosition = position
-            card.style.color = "#DEF2F1"
-
-            card.style.width = "100px"
-            card.style.height = "100px"
-            card.style.objectFit = "cover"
-
-            cardFront.appendChild(coverCard)
-            cardBack.appendChild(card)
-            cardInner.appendChild(cardFront)
-            cardInner.appendChild(cardBack)
-            cardContainer.appendChild(cardInner)
-
+            cardContainer.className= "flip-card"
+            let cardHtml=
+`<div class="flip-card-inner" cardnb="${i} " style="width: ${size}px; height: ${size}px;">
+    <div class="flip-card-front" style="width: ${size}px; height: ${size}px;">
+        <div style="width: ${size}px; height: ${size}px; font-size: ${fontSize}px;">?</div>
+    </div>
+    <div class="flip-card-back">
+        <img class="front-face" src="./cartes.png" style="object-position: 0% ${cropImg}%; width: ${size}px; height: ${size}px; object-fit: cover;">
+    </div>
+</div>`
+            cardContainer.innerHTML += cardHtml;
             cropImg += (100/17)
             cardArray.push(cardContainer)
         }
@@ -110,7 +103,6 @@ const levelEnd = document.getElementById("levelEnd")
     displayCard(){
         this.clearCard();
         let arrayCardDisplay = [];
-
         this.stockCardEachTurn();
 
         this.arrayToClear.forEach(element => {

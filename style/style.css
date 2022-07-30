@@ -10,9 +10,11 @@ body header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 8vh;
 }
 body header #level {
   text-align: center;
+  margin-top: 30vh;
 }
 body header #level button {
   padding: 8px 15px;
@@ -38,21 +40,15 @@ body header h3 {
 body header h2 {
   color: #17252A;
 }
-body header #result {
-  display: none;
-}
-body header #loose {
-  display: none;
-}
 body .container-fluid {
   display: none;
-  margin: 0 auto;
+  margin-top: 20px;
 }
 body .container-fluid #containerDuJeu #barContainer {
   margin: 0 auto;
   border-radius: 5px;
-  width: 60vw;
-  height: 30px;
+  width: 80vw;
+  height: 4vh;
   border: 1px solid #17252A;
   position: relative;
 }
@@ -66,58 +62,89 @@ body .container-fluid #containerDuJeu #barContainer #progressBar span {
   left: 50%;
   top: 7px;
 }
-body .container-fluid #containerDuJeu .grid-container {
-  position: relative;
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-body .container-fluid #containerDuJeu .grid-container .flip-card {
-  background-color: transparent;
-  width: 100px;
-  height: 100px;
-  perspective: 1000px;
-  margin: 2px;
-}
-body .container-fluid #containerDuJeu .grid-container .flip-card .C {
-  transform: rotateY(180deg);
-}
-body .container-fluid #containerDuJeu .grid-container .flip-card :not(.C) {
-  transform: rotateY(0deg);
-}
-body .container-fluid #containerDuJeu .grid-container .flip-card .X {
-  transform: rotateY(180deg);
-}
-body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner {
-  position: relative;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner .flip-card-front, body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner .flip-card-back {
-  transform: rotateY(180deg);
-}
-body .container-fluid #containerDuJeu .grid-container .flip-card .flip-card-inner .flip-card-front {
-  font-size: 90px;
+body .container-fluid #containerDuJeu #card_container {
+  height: 74vh;
 }
 body footer {
   display: flex;
   justify-content: center;
 }
 body footer button {
-  margin-top: 30px;
   padding: 8px 15px;
   border-radius: 5px;
+  margin-top: 3vh;
   background-color: #17252A;
   color: #DEF2F1;
   border: none;
   display: none;
+}
+
+.grid-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+.grid-container .flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  margin: 3px;
+}
+.grid-container .flip-card .C {
+  transform: rotateY(180deg);
+}
+.grid-container .flip-card :not(.C) {
+  transform: rotateY(0deg);
+}
+.grid-container .flip-card .X {
+  transform: rotateY(180deg);
+}
+.grid-container .flip-card .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.grid-container .flip-card .flip-card-inner .flip-card-front, .grid-container .flip-card .flip-card-inner .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.grid-container .flip-card .flip-card-inner .flip-card-back {
+  transform: rotateY(180deg);
+}
+.grid-container .flip-card .flip-card-inner .flip-card-front {
+  background-color: #2B7A78;
+  color: #DEF2F1;
+}
+
+#resultat {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 2.1vh;
+}
+#resultat h2, #resultat span {
+  color: #17252A;
+  font-weight: bold;
+}
+#resultat span {
+  font-size: 2.2vh;
+}
+
+#result {
+  display: none;
+  margin-top: 20vh;
+  max-width: 90vw;
+}
+
+#loose {
+  display: none;
+  margin-top: 20vh;
 }/*# sourceMappingURL=style.css.map */

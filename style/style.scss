@@ -3,6 +3,12 @@ $font_color : #DEF2F1;
 $light_blue : #3AAFA9;
 $grey_blue : #2B7A78;
 
+// @media only screen and (min-width: 901px)  {$size: 100px;}
+// @media only screen and (max-width: 900px) and (min-width: 431px)  {$size: 80px;}
+// @media only screen and (max-width: 430px) {$size: 50px;}
+
+// $size: 100px;
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
 body{    
@@ -15,8 +21,10 @@ body{
         display:flex;
         flex-direction: column;
         align-items: center;
+        height: 8vh;
         #level{
             text-align: center;
+            margin-top: 30vh;
             button{
                 padding: 8px 15px;
                 border-radius: 5px;
@@ -43,24 +51,18 @@ body{
         h2{
             color : $btn_background;
         }
-        #result{
-            display: none;
-        }
-        #loose{
-            display: none;
-        }
-        
+               
     }
     
     .container-fluid {
         display : none;
-        margin:0 auto;
-        #containerDuJeu{            
+        margin-top: 20px;
+        #containerDuJeu{       
             #barContainer{                
                 margin:0 auto;
                 border-radius: 5px;
-                width: 60vw;
-                height: 30px;
+                width: 80vw;
+                height: 4vh;
                 border: 1px solid $btn_background;
                 position:relative;             
                 
@@ -75,68 +77,20 @@ body{
                     }
                 }
             }
-            .grid-container{
-                position:relative;
-                margin-top: 20px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                // img{
-                //     width: 100px;
-                //     width: 100px;
-                // }
-                .flip-card{
-                    background-color: transparent;
-                    width: 100px;
-                    height: 100px;
-                    perspective: 1000px;
-                    margin:2px; 
-                    .C{
-                        transform: rotateY(180deg);
-                    }
-                   
-                    :not(.C){
-                        transform: rotateY(0deg);
-                    }
-                    .X{
-                        transform: rotateY(180deg);
-                    }
-                    .flip-card-inner{
-                        position: relative;
-                        // width: 100%;
-                        // height: 100%;
-                        text-align: center;
-                        transition: transform 0.6s;
-                        transform-style: preserve-3d; 
-                        
-                        
-                        .flip-card-front, .flip-card-back{
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            -webkit-backface-visibility: hidden;
-                            backface-visibility: hidden;
-                        }
-                        .flip-card-back{
-                            transform: rotateY(180deg);
-                        }                       
-                        .flip-card-front {
-                            font-size: 90px;                            
-                        }                       
-                        
-                    } // .flip-card-inner
-                } // ..flip-card
-
-            } // .grid-container
+            #card_container{   
+                height: 74vh;  
+            }            
         } // #containerDuJeu
-    }    //main   
+       
+    }    //main  
+
     footer{
         display: flex;
         justify-content: center;
         button{
-            margin-top: 30px;
             padding: 8px 15px;
             border-radius: 5px;
+            margin-top: 3vh;
             background-color: $btn_background;
             color: $font_color;
             border: none;
@@ -145,3 +99,77 @@ body{
     }
 } // body
 
+.grid-container{
+    position:relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    
+    .flip-card{
+        background-color: transparent;
+        perspective: 1000px;
+        margin: 3px;; 
+        .C{
+            transform: rotateY(180deg);
+        }
+       
+        :not(.C){
+            transform: rotateY(0deg);
+        }
+        .X{
+            transform: rotateY(180deg);
+        }
+        .flip-card-inner{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d; 
+            
+            
+            .flip-card-front, .flip-card-back{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            .flip-card-back{
+                transform: rotateY(180deg);
+            }                       
+            .flip-card-front { 
+                background-color: $grey_blue; 
+                color: $font_color;                        
+            }                       
+            
+        } // .flip-card-inner
+    } // ..flip-card
+
+} // .grid-container
+
+
+#resultat{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 2.1vh;
+    h2, span{
+        color: $btn_background;
+        font-weight: bold;
+    }
+    span{
+        font-size: 2.2vh;
+    }
+}
+#result {
+    display: none;
+    margin-top: 20vh;
+    max-width: 90vw;
+}
+#loose {
+    display: none;
+    margin-top: 20vh;
+}

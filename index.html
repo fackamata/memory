@@ -1,83 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
-    <title>Memory</title>
-</head>
-<body>
-    <header >
-        <div>
-    
-            <h1>Jeu memory</h1>
-            
-        </div>
-        <!-- bouton de choix qui disparaise lors du jeu -->
-        <div id="level">
-            <h3>Choisis un niveau</h3>
-            <div id="btn_level">
-                
-                <button 
-                id="btn_facile" 
-                class="btn btn-success">
-                    Facile
-                </button>
-                <button id="btn_moyen" class="btn btn-success">
-                    Moyen
-                </button>
-                <button id="btn_dur" class="btn btn-success">
-                    Dur
-                </button>
-            </div>
-        </div>
-
-        <div id="result">
-            <h2>Bravo !</h2>
-            <div>tu as mis : <span id="divTime"></span> secondes.</div>
-            <div>pour trouver : <span id="divFound"></span> cartes.</div>
-            <div>en essayant : <span id="divTries"></span> fois !</div>
-            <div>pas trop nul pour le niveau : <span id="levelEnd"></span></div>
-        </div>
-        <div id="loose">
-            <h2>Perdu !</h2>
-            <div>Le temps est écoulé</div>
-            <div>Tu as trouvé : <span id="divFound2"></span> </div>
-        </div>
-
-    </header> 
-
-    <main class="container-fluid ">
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style/style.css">
+        <title>Memory</title>
+    </head>
+    <body>
+        <header >
+            <div>
         
-        <!-- contenant du jeu qui n'est pas visible au début, le devient 
-            quand un niveau est sélectionné -->
-        
-       <div  id="containerDuJeu">
-            <div id="gameContainer"> 
-                <div id="barContainer"> <div id="progressBar">
-                    <span id="timeText"></span>
-                </div></div>
-            </div>
-            
-            <div class="grid-container" id="card_container">
+                <h1>Memory</h1>
                 
             </div>
-       </div>
+            <!-- bouton de choix qui disparaise lors du jeu -->
+            <div id="level">
+                <h3>Choisis un niveau</h3>
+                <div id="btn_level">
+                    
+                    <button 
+                    id="btn_facile" 
+                    class="btn btn-success">
+                        Facile
+                    </button>
+                    <button id="btn_moyen" class="btn btn-success">
+                        Moyen
+                    </button>
+                    <button id="btn_dur" class="btn btn-success">
+                        Dur
+                    </button>
+                </div>
+            </div>
 
-    </main>
+           
+
+        </header> 
+
+        <main class="container-fluid ">
+            
+            <!-- contenant du jeu qui n'est pas visible au début, le devient 
+                quand un niveau est sélectionné -->
+            
+            <div  id="containerDuJeu">
+                    <div id="gameContainer"> 
+                        <div id="barContainer"> <div id="progressBar">
+                            <span id="timeText"></span>
+                        </div></div>
+                    </div>
+                    
+                    <div class="grid-container" id="card_container">
+                        
+                    </div>
+            </div>
+
+        </main> 
+        <section id="resultat">
+
+            <div id="result">
+                <h2>Bravo !</h2>
+                <div>tu as mis : <span id="divTime"></span> secondes.</div>
+                <div>pour trouver : <span id="divFound"></span> cartes.</div>
+                <div>en essayant : <span id="divTries"></span> fois !</div>
+                <div>pas trop nul pour le niveau : <span id="levelEnd"></span></div>
+            </div>
+            <div id="loose">
+                <h2>Perdu !</h2>
+                <div>Le temps est écoulé</div>
+                <div>Tu as trouvé : <span id="divFound2"></span> </div>
+            </div>
+        </section>
 
 
-    <footer class="d-flex justify-content-center">
 
-        <button 
-        id="btn_retour_level" 
-        class="btn btn-success mt-3">        
-        Retour aux choix de difficulté</button>
+        <footer class="d-flex justify-content-center">
 
-    </footer>
+            <button 
+            id="btn_retour_level" 
+            class="btn btn-success mt-3">        
+            Retour </button>
 
-    <script src="./script.js"></script>
-    
-</body>
+        </footer>
+
+        <script src="./app.js"></script>
+        
+    </body>
 </html>
